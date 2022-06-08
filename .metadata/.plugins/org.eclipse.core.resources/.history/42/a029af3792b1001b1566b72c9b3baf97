@@ -1,0 +1,64 @@
+//Simon
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class DailyReport {
+
+	public static void main(String[] args) throws FileNotFoundException{
+		
+		ArrayList<Person> arrList = new ArrayList<Person>();
+		
+		File file = new File("InputSB.txt");
+		Scanner inputFile= new Scanner(file);
+		
+		int q=0, w=0, r=0, i=0;
+	    
+		while (inputFile.hasNext()) {
+			   
+			String gender = inputFile.next();
+		    int age = inputFile.nextInt();
+		    String _case = inputFile.next();
+		    Person person = new Person(gender, age, _case);
+		    arrList.add(person);
+		   	
+		    if(_case.equals(String.valueOf(CaseList.CASE1)) || _case.equals(String.valueOf(CaseList.CASE2)))
+				q++;
+			else if (_case.equals(String.valueOf(CaseList.CASE3)))
+				w++;
+			else if (_case.equals(String.valueOf(CaseList.CASE4)))
+				i++;
+			else if (_case.equals(String.valueOf(CaseList.CASE5)))
+				r++;
+		    
+		    Person.counter++;
+		}
+		
+		inputFile.close();
+		
+		System.out.println("\nCovid-19 Cases and Action Required");
+		for(CaseList case_list : CaseList.values()) {
+			System.out.printf("%-4s%-1s %-17s %-15s \n", case_list, ":", case_list.getBackground(), case_list.getStatus());
+			}
+		
+		System.out.println("\n\t\tCOVID-19 DAILY REPORT");
+		System.out.printf("%-8s %-10s %-8s %-20s %-15s","Case", "Gender", "Age", "Background", "Status");
+		
+		System.out.println(arrList.get(0));
+		
+//		for(i=0; i<Person.counter; i++) {
+//			System.out.printf("%-8s %-10s %-8s %-20s %-15s", i, arrList.get(i));
+//			
+		//}
+		
+		System.out.println("\nTotal In Quarantine = " + q);
+		System.out.println("Total In ICU = " + i);
+		System.out.println("Total In Warded = " + w);
+		System.out.println("Total In Discharge = " + r);
+		System.out.println("Total Cases = " + Person.counter);
+		
+	}
+}
+

@@ -1,0 +1,45 @@
+//Simon
+public class Person {
+	private String gender;
+	private int age;
+	private String background;
+	private String status;
+	static private int counter;
+	
+	Person(String g, int a, String b, String s){
+		gender = g;
+		age = a;
+		background = b;
+		status = s;
+	}
+	
+	Person(String g, int a, String s){
+		gender = g;
+		age = a;
+		status = s;
+	}
+	
+	public String getGender() {
+		return gender;
+	}
+	
+	public int getAge() {
+		return age;
+	}
+	
+	public String getBackground() {
+		return background;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+	
+	static public void counter() {
+		counter++;
+	}
+	
+	static public int getCounter() {
+		return counter;
+	}
+}

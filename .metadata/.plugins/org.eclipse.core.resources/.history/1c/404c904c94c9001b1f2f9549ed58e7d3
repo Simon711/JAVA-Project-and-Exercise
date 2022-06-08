@@ -1,0 +1,22 @@
+
+public class ArrayExcept {
+
+	public static void main(String[] args) {
+		int[] array = new int[5];
+		
+		array[0] = 5684;
+		array[1] = 7563;
+		array[2] = 234634;
+		array[3] = 95678;
+		array[4] = 123;
+		
+		try {
+			for(int i=0; i<6; i++)
+				System.out.println(array[i]);
+		}
+		catch(ArrayIndexOutOfBoundsException e) {
+			System.out.println("You have exceeded the array size");
+		}
+	}
+
+}

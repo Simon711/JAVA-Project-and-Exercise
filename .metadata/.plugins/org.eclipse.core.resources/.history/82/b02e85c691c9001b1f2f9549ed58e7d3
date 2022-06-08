@@ -1,0 +1,47 @@
+import java.util.*;
+
+class MyException extends Exception {
+
+  private int value;
+  private String message;
+
+  public MyException(int i) {
+    value = i;
+    message = new String("Your are under 16 years old"); 
+  }
+ public String getMessage() {
+    return message;
+  }
+}
+
+public class exception5 {
+	public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	
+	try {
+	int current_year = 2009;
+	System.out.print("Please input your birth year: ");
+	int year_of_birth = input.nextInt();
+	int num_year;
+	int age = current_year - year_of_birth;
+	num_year = age - 16;
+	
+	
+	if(age < 16) {
+		throw new MyException(age);
+		if(num_year<4)
+			System.out.println("Charge RM600");
+		else
+			System.out.println("Charge RM1000");
+        throw new MyException(age);
+	}
+	
+	}
+	
+	catch (MyException ex) {
+        System.out.println(ex.getMessage());
+	 }
+
+	
+}
+}

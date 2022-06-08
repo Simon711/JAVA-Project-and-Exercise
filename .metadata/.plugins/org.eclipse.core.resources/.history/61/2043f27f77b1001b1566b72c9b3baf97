@@ -1,0 +1,32 @@
+//Simon
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class DailyReport {
+
+	public static void main(String[] args) throws FileNotFoundException{
+		
+		File file = new File("InputSB.txt");
+		Scanner inputFile= new Scanner(file);
+		
+		while (inputFile.hasNext()) {
+			   
+			String gender = inputFile.next();
+		    int age = inputFile.nextInt();
+		    String _case = inputFile.next();
+		    System.out.println(gender + "\t" + age + "\t" + _case);
+		    
+		//    Person person = new Person()
+		}
+		
+		System.out.println("Cocid-19 Cases and Action Required");
+		CaseList caseList[] = CaseList.values();
+		for(CaseList case_list : caseList) {
+			System.out.printf("%-7s %-1s %-20s %-15s", case_list ,":", case_list.getBackground(), case_list.getStatus());
+			System.out.println();
+		}
+
+}
+}

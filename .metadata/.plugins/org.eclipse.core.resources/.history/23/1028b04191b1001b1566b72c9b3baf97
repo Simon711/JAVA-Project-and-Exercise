@@ -1,0 +1,26 @@
+//Simon
+
+public enum CaseList {
+	CASE1("TRAVEL ABROAD", "QUARANTINE"), 
+	CASE2("CLOSE CONTACT", "QUARANTINE"), 
+	CASE3("COVID SYMPTOM", "WARDED"), 
+	CASE4("CRITICAL", "ICU"), 
+	CASE5("RECOVER", "DISCHARGED");
+	
+	private String background;
+	private String status;
+	
+	CaseList(String b, String s){
+		background = b;
+		status = s;
+	}
+	
+	public String getBackground() {
+		return background;
+	}
+	
+	public String getStatus(){
+		return status;
+	}
+}
+		 
